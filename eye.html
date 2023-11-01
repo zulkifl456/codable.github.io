@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  
+  .eye {
+    width: 50px;
+    height: 100px;
+    background: rgb(231, 212, 212);
+    border: 2px solid black;
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    transform: rotate(5deg);
+  }
+
+  .pupil {
+    width: 40px;
+    height: 80px;
+    background: black;
+    border-radius: 70%;
+    position: absolute;
+  }
+
+  .pupil::before {
+    content: "";
+    width: 15px; /* Adjust the size of the white spot as needed */
+    height: 15px; /* Adjust the size of the white spot as needed */
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 70%; /* Position the white spot in the center vertically */
+    left: 80%; /* Position the white spot in the center horizontally */
+    transform: translate(-50%, -50%); /* Center the white spot */
+  }
+
+  .eyes-container {
+    text-align: center;
+    position: absolute;
+    top: 30%; /* Vertically center the eyes */
+    left: 50%; /* Horizontally center the eyes */
+    transform: translate(-50%, -50%); /* Center the eyes */
+    
+  }
+  
+
+  footer {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    color: rgb(64, 64, 64);
+    padding: 10px;
+  }
+  body {
+    background-image: url('file:///D:/Desktop/CODABLE/test.jpg');
+    background-size: 100% 9000%;
+    background-repeat: no-repeat;
+  }
+
+  .centered-button {
+    text-align: center;
+    position: absolute;
+    bottom: 50%; /* Position in the vertical center */
+    left: 50%; /* Position in the horizontal center */
+    transform: translate(-50%, 50%); /* Center the button */
+  }
+  /* Heart animation keyframes */
+  /* Heart animation keyframes */
+  @keyframes heartAnimation {
+    0% {
+      transform: scale(0);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.2);
+      opacity: 0.7;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 0;
+    }
+  }
+
+  .heart {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: red;
+    display: inline-block;
+    transform: rotate(-45deg);
+    margin: 0 10px;
+    top: 0;
+    animation: heartAnimation 0.5s ease-out;
+  }
+
+  .heart:before,
+  .heart:after {
+    content: "";
+    background-color: red;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+  }
+
+  .heart:before {
+    top: -15px;
+    left: 0;
+  }
+
+  .heart:after {
+    left: 15px;
+    top: 0;
+  }
+
+  
+</style>
+</head>
+<body>
+
+  
+
+  <div class="eyes-container">
+    <div class="eye" id="left-eye">
+      <div class="pupil" id="left-pupil"></div>
+    </div>
+    <div class="eye" id="right-eye">
+      <div class="pupil" id="right-pupil"></div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2023 CODABLE LLC. All rights reserved.</p>
+  </footer>
+  
+
+  <button class="centered-button" id="heartButton">MAGIC</button>
+  
+
+  <script>
+    const heartButton = document.getElementById("heartButton");
+
+heartButton.addEventListener("mouseenter", function () {
+  const numberOfHearts = 10;
+  for (let i = 0; i < numberOfHearts; i++) {
+    createHeart();
+  }
+});
+
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.classList.add("heart");
+  document.body.appendChild(heart);
+  animateHeart(heart);
+}
+
+function animateHeart(heart) {
+  const x = Math.random() * (window.innerWidth - 30);
+  const y = Math.random() * (window.innerHeight - 30);
+  heart.style.left = `${x}px`;
+  heart.style.top = `${y}px`;
+  heart.addEventListener("animationend", function () {
+    heart.remove();
+  });
+}
+    document.addEventListener("mousemove", function(event) {
+      const leftEye = document.getElementById("left-eye");
+      const leftPupil = document.getElementById("left-pupil");
+      const rightEye = document.getElementById("right-eye");
+      const rightPupil = document.getElementById("right-pupil");
+
+      const eyeWidth = leftEye.offsetWidth;
+      const eyeHeight = leftEye.offsetHeight;
+      const eyeX = leftEye.getBoundingClientRect().left;
+      const eyeY = leftEye.getBoundingClientRect().top;
+
+      const mouseX = event.clientX;
+      const mouseY = event.clientY;
+
+      const eyeCenterX = eyeX + eyeWidth / 2;
+      const eyeCenterY = eyeY + eyeHeight / 2;
+
+      const deltaX = mouseX - eyeCenterX;
+      const deltaY = mouseY - eyeCenterY;
+      const angle = Math.atan2(deltaY, deltaX);
+
+      const maxPupilShift = (eyeWidth - leftPupil.offsetWidth) / 2;
+      const pupilRadius = maxPupilShift;
+
+      const pupilX = Math.cos(angle) * pupilRadius;
+      const pupilY = Math.sin(angle) * pupilRadius;
+
+      // Ensure the pupils stay within the eye bounds
+      const distance = Math.sqrt(pupilX * pupilX + pupilY * pupilY);
+      if (distance <= pupilRadius) {
+        leftPupil.style.transform = `translate(${pupilX}px, ${pupilY}px)`;
+        rightPupil.style.transform = `translate(${pupilX}px, ${pupilY}px)`;
+      }
+    });
+  </script>
+</body>
+</html>
