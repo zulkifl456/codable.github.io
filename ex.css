@@ -1,0 +1,347 @@
+/* Reset some default styles */
+body, h1, h2, h3, p, ul, li, form {
+  margin: 0;
+  padding: 0;
+}
+
+/* Common styles for all screen sizes */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff; /* White background */
+  color: #333; /* Dark text color */
+  position: relative;
+}
+
+header {
+  background-color: #cccccc; /* Blue background for header */
+  color: #fff; /* White text color for header */
+  padding: 1rem;
+  /* box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); */
+  position: fixed; /* Fixed position */
+  width: 100%; /* Full width */
+  height: 10%;
+  top: 0; /* Positioned at the top */
+  z-index: 1000; /* Higher z-index to ensure it's above other content */
+  animation: fadeInDown 1s ease; /* Add fadeInDown animation to header */
+}
+
+.header-margin {
+  margin-top: 60px; /* Add margin when scrolled down */
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  width: 100px;
+  height: auto;
+  margin-right: 10px;
+}
+
+.logo-text h1 {
+  margin: 0;
+  color: #007bff; /* Blue text color */
+  font-size: 36px; /* Increase font size */
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 1.5rem; /* Adjust top spacing */
+  right: 1rem;
+}
+
+.nav-links li {
+  margin-right: 1.5rem; /* Increase right margin */
+}
+
+.nav-links a {
+  color: #007BFF; /* Dark text color */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover:not(.active) {
+  color: #3e4144; /* Blue text color on hover */
+}
+
+.nav-links a.active {
+  color: #007bff; /* Blue text color for active link */
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 1.5rem 3rem; /* Increase padding */
+  background-color: #f9fafb; /* Blue button color */
+  box-shadow: 0px 2px 5px #007BFF;
+  color: #007bff;
+  text-decoration: none;
+  border-radius: 8px; /* Rounded corners */
+  font-size: 1.5rem; /* Increase font size */
+  transition: background-color 0.3s ease;
+  bottom: 100%;
+  margin-top: 8rem; /* Add margin to the top */
+  animation: fadeInUp 1s ease; /* Add fadeInUp animation to CTA button */
+}
+
+.cta-button:hover {
+  background-color: #007bff; /* Darker blue on hover */
+  color: #ffffff;
+}
+
+#services,
+#portfolio,
+#contact {
+  padding: 4rem;
+}
+
+.service-card,
+.portfolio-item {
+  border: 1px solid #007BFF; /* Blue border */
+  padding: 2rem; /* Increase padding */
+  margin: 2rem;
+  background-color: #fff; /* White background */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Increase box-shadow */
+  transition: transform 0.3s ease-in-out;
+  border-radius: 8px; /* Rounded corners */
+  animation: scaleUp 0.5s ease; /* Add scaleUp animation to service cards and portfolio items */
+}
+
+.service-card:hover,
+.portfolio-item:hover {
+  transform: scale(1.05);
+}
+
+footer {
+  background-color: #007BFF; /* Blue background for footer */
+  color: #fff;
+  text-align: center;
+  padding: 2rem; /* Increase padding */
+  position: relative;
+  bottom: 0;
+  width: 95.7%;
+  animation: fadeInUp 1s ease; /* Add fadeInUp animation to footer */
+}
+
+/* Media Queries for Responsive Design */
+@media screen and (max-width: 768px) {
+  /* Styles for screens up to 768px wide */
+  .nav-links {
+      flex-direction: column;
+      align-items: center;
+      position: static;
+      margin-top: 1rem;
+  }
+
+  .nav-links li {
+      margin-bottom: 1rem; /* Increase bottom margin */
+  }
+
+  .hero {
+      padding: 2rem;
+  }
+
+  #services,
+  #portfolio,
+  #contact {
+      padding: 2rem;
+  }
+
+  .service-card,
+  .portfolio-item {
+      margin: 1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  /* Styles for screens up to 480px wide */
+  .logo-text h1 {
+      margin-left: 0; /* Center the text */
+      text-align: center;
+  }
+}
+
+/* Form Styles */
+form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+label {
+  display: block;
+  margin-bottom: 1rem; /* Increase bottom margin */
+  color: #333; /* Dark text color */
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 1rem; /* Increase padding */
+  margin-bottom: 1.5rem; /* Increase bottom margin */
+  border: 1px solid #007BFF; /* Blue border */
+  border-radius: 8px;
+  background-color: #fff; /* White background */
+  color: #333; /* Dark text color */
+}
+
+button {
+  background-color: #007BFF; /* Blue button color */
+  color: #fff;
+  padding: 1rem 2rem; /* Increase padding */
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+#home {
+  position: relative;
+  overflow: hidden;
+  background: url('lg.jpg') center/cover no-repeat; /* Set background properties */
+  width: auto;
+  height: auto;
+}
+
+/* Add styles for the slideshow container */
+.slideshow-container {
+  max-width: 100%;
+  height: 100vh;
+  position: absolute;
+}
+
+.slideshow-img {
+  display: none;
+  width: 160%; /* Use width: 100% to fill the container */
+  height: 100%; /* Use height: 100% for full coverage */
+  object-fit: cover; /* Maintain aspect ratio while covering the container */
+}
+
+.hero {
+  text-align: center;
+  padding: 8rem 4rem 20rem; /* Adjusted padding-bottom to position the CTA button */
+  background-color: rgba(204, 204, 204, 0.6); /* Darker black with increased transparency */
+  background-image: '1.jpg';
+  color: #007BFF; /* White text color for hero */
+  position: relative;
+  z-index: 1; /* Ensure hero content is above the slideshow */
+  animation: fadeInUp 1s ease; /* Add fadeInUp animation to hero */
+}
+
+.hero p {
+  font-size: 24px; /* Increase font size for the text above CTA button */
+  margin-top: 10rem;
+}
+
+/* Style the navigation dots */
+.dot {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active-dot {
+  background-color: #007BFF; /* Blue color for active dot */
+}
+
+.mobile-menu-icon {
+  display: none;
+  cursor: pointer;
+  padding: 15px;
+  position: absolute;
+  top: 1.5rem;
+  right: 1rem;
+  z-index: 1000;
+}
+
+.mobile-menu-icon span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: #333; /* Dark color for mobile menu icon */
+  margin: 5px 0;
+  transition: 0.4s;
+}
+
+.mobile-menu {
+  display: none;
+  position: absolute;
+  top: 70px; /* Adjust the top position as needed */
+  right: 10px;
+  background-color: #007BFF; /* Blue background for mobile menu */
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+}
+
+.mobile-menu a {
+  color: #fff;
+  text-decoration: none;
+  padding: 15px;
+  display: block;
+  transition: background-color 0.3s ease;
+}
+
+.mobile-menu a:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+@media screen and (max-width: 770px) {
+  .desktop-nav {
+      display: none;
+  }
+
+  .mobile-menu-icon {
+      display: block;
+  }
+
+  .mobile-nav {
+      display: block;
+  }
+}
+
+/* Define animation keyframes */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleUp {
+  from {
+    transform: scale(0.8);
+  }
+  to {
+    transform: scale(1);
+  }
+}

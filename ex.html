@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="ex.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <title>CODABLE LLC</title>
+</head>
+
+<body>
+    <header class="animate__animated animate__fadeInDown">
+        <div class="logo">
+            <img src="x.png" alt="Logo" />
+            <div class="logo-text">
+                <h1>CODABLE LLC</h1>
+            </div>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="animate__animated animate__fadeIn">
+        <!--<div class="slideshow-container">
+             Slides 
+            <img class="slideshow-img" src="1.jpg" alt="Slide 1">
+            <img class="slideshow-img" src="2.jpg" alt="Slide 2">
+            <img class="slideshow-img" src="3.jpg" alt="Slide 3">
+             Navigation dots 
+            <div style="text-align:center">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>-->
+        </div>
+        <div class="hero">
+            <p>WELCOME TO A WORLD WHERE IMAGINATION MEETS CREATION</p>
+            <a href="#contact" class="cta-button">Get Started</a>
+        </div>
+    </section>
+
+    <section id="services" class="animate__animated animate__fadeIn">
+        <h2>Our Expertise</h2>
+        <div class="service-card">
+            <h3>Web Development</h3>
+            <p>Crafting websites that speak the language of your brand. From simple landing pages to complex web applications, we've got you covered.</p>
+        </div>
+        <div class="service-card">
+            <h3>Custom Software</h3>
+            <p>End-to-End Software Development tailored to your business needs. Our solutions are scalable, secure, and designed to optimize your operations.</p>
+        </div>
+        <div class="service-card">
+            <h3>Mobile Applications</h3>
+            <p>Innovative mobile apps that connect with your audience on the go. From iOS to Android, we build apps that deliver seamless user experiences.</p>
+        </div>
+    </section>
+
+    <section id="portfolio" class="animate__animated animate__fadeIn">
+        <h2>Explore Our Creative Excellence</h2>
+        <div class="portfolio-item">
+            <h3>Project 1</h3>
+            <p>Details about your first project. Showcase the technologies used, challenges overcome, and the impact on your client's business.</p>
+        </div>
+        <div class="portfolio-item">
+            <h3>Project 2</h3>
+            <p>Details about your second project. Highlight the unique features, design elements, and the value it brought to your client.</p>
+        </div>
+    </section>
+
+    <section id="contact" class="animate__animated animate__fadeIn">
+        <h2>Ready to Propel Your Business Forward?</h2>
+        <p>Reach out and tell your unique story. Let's shape the future together.</p>
+        <form action="/submit_form" method="post">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="subject">Subject:</label>
+            <input type="text" id="subject" name="subject" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+
+    <footer class="animate__animated animate__fadeInUp">
+        <p>&copy; 2023 CODABLE LLC. All Rights Reserved.</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="ex.js"></script>
+</body>
+
+</html>
